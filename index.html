@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Nadia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFD700; /* Fondo dorado */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            overflow: hidden; /* Evita scroll por animaciones */
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para contraste */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10; /* Sobre las animaciones */
+        }
+        #mensaje {
+            font-size: 24px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        .emoji {
+            font-size: 50px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        /* Animación de flores cayendo */
+        .flor {
+            position: absolute;
+            font-size: 30px;
+            animation: caer 5s linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes caer {
+            0% { top: -50px; left: 0; transform: rotate(0deg); }
+            100% { top: 100vh; left: 100vw; transform: rotate(360deg); }
+        }
+        /* Animación de estrellas fugaces */
+        .estrella {
+            position: absolute;
+            font-size: 20px;
+            color: white;
+            animation: fugaz 3s linear infinite;
+            opacity: 0.9;
+        }
+        @keyframes fugaz {
+            0% { top: 10%; left: -10%; transform: scale(0); }
+            50% { transform: scale(1); }
+            100% { top: 90%; left: 110%; transform: scale(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flores cayendo -->
+    <div class="flor" style="left: 10%; animation-delay: 0s;">🌸</div>
+    <div class="flor" style="left: 30%; animation-delay: 1s;">🌼</div>
+    <div class="flor" style="left: 50%; animation-delay: 2s;">🌸</div>
+    <div class="flor" style="left: 70%; animation-delay: 3s;">🌼</div>
+    <div class="flor" style="left: 90%; animation-delay: 4s;">🌸</div>
+
+    <!-- Estrellas fugaces -->
+    <div class="estrella" style="animation-delay: 0s;">✨</div>
+    <div class="estrella" style="animation-delay: 1.5s;">⭐</div>
+    <div class="estrella" style="animation-delay: 3s;">✨</div>
+
+    <div class="container">
+        <div class="emoji">🎉</div>
+        <div id="mensaje"></div>
+        <div class="emoji">🎂</div>
+    </div>
+
+    <script>
+        const mensajeCompleto = `¡Feliz Cumpleaños, Nadia!
+Que tengas un día lleno de alegría y sorpresas.
+¡Te queremos mucho!`;
+
+        let index = 0;
+        const mensajeElement = document.getElementById('mensaje');
+
+        function escribirMensaje() {
+            if (index < mensajeCompleto.length) {
+                mensajeElement.textContent += mensajeCompleto.charAt(index);
+                index++;
+                setTimeout(escribirMensaje, 100); // Velocidad de escritura
+            }
+        }
+
+        // Iniciar la animación al cargar la página
+        window.onload = function() {
+            escribirMensaje();
+        };
+    </script>
+</body>
+</html>
