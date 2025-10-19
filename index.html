@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños Nadia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> <!-- Fuente Google Fonts para mejor apariencia -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #FFD700; /* Fondo dorado */
+            background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'); /* Imagen de fondo festiva (confeti y estrellas) */
+            background-size: cover; /* Cubre toda la pantalla */
+            background-position: center; /* Centrada */
+            background-repeat: no-repeat; /* No repetir */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,8 +30,11 @@
             z-index: 10; /* Sobre las animaciones */
         }
         #mensaje {
-            font-size: 24px;
-            line-height: 1.5;
+            font-family: 'Dancing Script', cursive; /* Fuente cursiva y elegante */
+            font-size: 32px; /* Tamaño mayor para impacto */
+            font-weight: 700; /* Negrita */
+            line-height: 1.8; /* Espaciado de líneas mejorado */
+            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.8); /* Sombra dorada para brillo */
             white-space: pre-wrap;
         }
         .emoji {
@@ -46,22 +53,17 @@
             animation: caer 5s linear infinite;
             opacity: 0.8;
         }
+        /* Animación de estrellas cayendo (igual que flores) */
+        .estrella {
+            position: absolute;
+            font-size: 50px; /* Tamaño aumentado a 50px */
+            color: white;
+            animation: caer 5s linear infinite; /* Usa la misma animación que las flores */
+            opacity: 0.9;
+        }
         @keyframes caer {
             0% { top: -50px; left: 0; transform: rotate(0deg); }
             100% { top: 100vh; left: 100vw; transform: rotate(360deg); }
-        }
-        /* Animación de estrellas fugaces */
-        .estrella {
-            position: absolute;
-            font-size: 20px;
-            color: white;
-            animation: fugaz 3s linear infinite;
-            opacity: 0.9;
-        }
-        @keyframes fugaz {
-            0% { top: 10%; left: -10%; transform: scale(0); }
-            50% { transform: scale(1); }
-            100% { top: 90%; left: 110%; transform: scale(0); }
         }
     </style>
 </head>
@@ -73,10 +75,17 @@
     <div class="flor" style="left: 70%; animation-delay: 3s;">🌼</div>
     <div class="flor" style="left: 90%; animation-delay: 4s;">🌸</div>
 
-    <!-- Estrellas fugaces -->
-    <div class="estrella" style="animation-delay: 0s;">✨</div>
-    <div class="estrella" style="animation-delay: 1.5s;">⭐</div>
-    <div class="estrella" style="animation-delay: 3s;">✨</div>
+    <!-- Estrellas cayendo como flores -->
+    <div class="estrella" style="left: 5%; animation-delay: 0s;">✨</div>
+    <div class="estrella" style="left: 15%; animation-delay: 0.5s;">⭐</div>
+    <div class="estrella" style="left: 25%; animation-delay: 1s;">✨</div>
+    <div class="estrella" style="left: 35%; animation-delay: 1.5s;">⭐</div>
+    <div class="estrella" style="left: 45%; animation-delay: 2s;">✨</div>
+    <div class="estrella" style="left: 55%; animation-delay: 2.5s;">⭐</div>
+    <div class="estrella" style="left: 65%; animation-delay: 3s;">✨</div>
+    <div class="estrella" style="left: 75%; animation-delay: 3.5s;">⭐</div>
+    <div class="estrella" style="left: 85%; animation-delay: 4s;">✨</div>
+    <div class="estrella" style="left: 95%; animation-delay: 4.5s;">⭐</div>
 
     <div class="container">
         <div class="emoji">🎉</div>
@@ -87,7 +96,10 @@
     <script>
         const mensajeCompleto = `¡Feliz Cumpleaños, Nadia!
 Que tengas un día lleno de alegría y sorpresas.
-¡Te queremos mucho!`;
+¡Te queremos mucho!
+Que cumplas muchos más años rodeada de amor.
+¡Que tus sueños se hagan realidad!
+¡Felicidades en tu día especial!`;
 
         let index = 0;
         const mensajeElement = document.getElementById('mensaje');
